@@ -6,7 +6,7 @@
 function linkedListGenerator(){
     var head = null;
     var tail = null;
-    var newNode = {};
+    var node = {};
     var nodeIndex = 0;
 
   function _getHead(){
@@ -18,20 +18,37 @@ function linkedListGenerator(){
   }
 
   function _add(value){
-    newNode = {
-      'nodeIndex': nodeIndex++,
-      'value': value,
+    node = {
+      nodeIndex: nodeIndex++,
+      value: value,
       next: null
     };
-    return newNode;
+    if (head === null && tail === null) {
+      head = node;
+      tail = node;
+    }else{
+      tail.next = node;
+      tail = node;
+    }
+    return node;
   }
 
-  function _get(Number){
-
+  function _get(number){
+    var thisNode = head;
+    for (var i = 0; i < number; i++) {
+      thisNode = thisNode.next;
+      if(thisNode === null){
+        return false;
+      }
+    }
+    return thisNode;
   }
 
-  function _remove(Number){
-
+  function _remove(number){
+    var thisNode = head;
+    for (var i = 0; i < number; i++) {
+      thisNode = thisNode.next;
+    }
   }
 
   function _insert(Value, Number){
@@ -46,6 +63,5 @@ function linkedListGenerator(){
     remove: _remove,
     insert: _insert
   };
-};
+}
 
-linkedListModule();
