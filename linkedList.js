@@ -16,12 +16,12 @@ function linkedListGenerator(){
     return tail;
   }
 
-  function _add(value){
+  function _add( value ){
     node = {
       value: value,
       next: null
     };
-    if (head === null && tail === null) {
+    if ( head === null && tail === null ) {
       head = node;
       tail = node;
     }else{
@@ -31,10 +31,10 @@ function linkedListGenerator(){
     return node;
   }
 
-  function _get(number){
+  function _get( number ){
     var thisNode = head;
-    for (var i = 0; i < number; i++) {
-      if(thisNode.next === null){
+    for ( var i = 0; i < number; i++ ) {
+      if( thisNode.next === null ){
         return false;
       }
       thisNode = thisNode.next;
@@ -42,17 +42,17 @@ function linkedListGenerator(){
     return thisNode;
   }
 
-  function _remove(number){
-    var currentNode = _get(number);
-    var prevNode = _get(number - 1);
-    var nextNode = _get(number + 1);
+  function _remove( number ){
+    var currentNode = _get( number );
+    var prevNode = _get( number - 1 );
+    var nextNode = _get( number + 1 );
 
-    if(currentNode === head){
+    if( currentNode === head ){
       head = nextNode;
-    }else if(currentNode.next === null){
+    }else if( currentNode.next === null ){
       prevNode.next = null;
       tail = prevNode;
-    }else if(currentNode === false){
+    }else if( currentNode === false ){
       return false;
     }
     prevNode.next = nextNode;
@@ -63,15 +63,15 @@ function linkedListGenerator(){
       value: value,
       next: null
     };
-    var desiredPlace = _get(number);
-    var prevNode = _get(number-1);
+    var desiredPlace = _get( number );
+    var prevNode = _get( number-1 );
 
-    if(desiredPlace === false || number < 0){
+    if( desiredPlace === false || number < 0 ){
       return false;
-    }else if(number === 0){
+    }else if( number === 0 ){
       head = newNode;
       newNode.next = desiredPlace;
-    }else if(desiredPlace !== head || desiredPlace !== tail){
+    }else if( desiredPlace !== head || desiredPlace !== tail ){
       newNode.next = desiredPlace;
       prevNode.next = newNode;
     }
